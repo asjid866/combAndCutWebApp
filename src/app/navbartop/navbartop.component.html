@@ -1,0 +1,69 @@
+<nav
+  class="navbar navbar-dark navbar-expand-lg justify-content-between col-md-12" style="background-color: #154360;"
+>
+  <a class="navbar-brand" routerLink="/" style="padding-left: 50px;">
+    <img src="assets/images/combandcutroundlogo.png" width="60" height="60" alt="" />
+    <p style="padding-left: 10px; display: inline;">Comb & Cut</p>
+  </a>
+  <div>
+    <ul
+      class="navbar-collapse navbar-nav mr-auto mt-2 mt-lg-0"
+      style="padding-right: 75px;"
+    >
+      <li class="nav-item">
+        <a class="nav-link" routerLink="booking">Book an Appointment</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="#">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about">About</a>
+      </li>
+
+      <!-- *ngif="!user" -->
+      <!-- <li class="nav-item"> -->
+      <a class="nav-link" *ngIf="!user" routerLink="admin/adminLogin"
+        >Admin Login</a
+      >
+      <!-- </li> -->
+
+      <!-- *ngif="user"  -->
+      <div
+        *ngIf="user"
+        ngbDropdown
+        class="dropdown"
+        style="padding-right: 50px;"
+      >
+        <button
+          ngbDropdownToggle
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          {{ user }}
+        </button>
+        <div
+          ngbDropdownMenu
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <a ngbDropdownItem class="dropdown-item" routerLink="admin/adminHome"
+            >Admin Home</a
+          >
+          <a
+            ngbDropdownItem
+            class="dropdown-item"
+            routerLink="admin/allBookings"
+            >All Bookings</a
+          >
+          <a ngbDropdownItem class="dropdown-item" routerLink="#">Add Barber</a>
+          <a ngbDropdownItem class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </div>
+    </ul>
+  </div>
+</nav>
+

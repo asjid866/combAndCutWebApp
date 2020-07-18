@@ -1,0 +1,27 @@
+.para-text-style {
+  text-align: center;
+  display: block;
+  width: 90%;
+  padding-top: 15%;
+  margin-right: auto;
+  margin-left: auto;
+
+  /* text-shadow: 1px 1px 30px #154360; */
+  font: 20px Fredoka One;
+}
+
+.heading-text-style {
+  text-align: center;
+  display: block;
+  padding: 0px;
+  /* text-shadow: 1px 1px 30px #154360; */
+  font: 30px Fredoka One;
+}
+
+.box-style {
+  height: 200px;
+  text-align: center;
+  width: 280px;
+  padding: 0px;
+  height: 200px;
+}

@@ -1,0 +1,613 @@
+<div class="container" style="padding-top: 50px;">
+  <div class="row">
+    <div class="col-lg-12">
+      <p
+        style="
+          text-align: center;
+          text-shadow: 2px 2px 5px #154360;
+          font: italic small-caps bold 50px/60px Courier, sans-serif;
+        "
+      >
+        Book An Appointment
+      </p>
+    </div>
+  </div>
+
+  <form 
+  <!-- #formData="ngForm" (ngSubmit)="submit(formData)" -->
+  >
+    <div class="form-group">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="col-lg-12">
+            <p
+              style="
+                text-align: left;
+                text-shadow: 2px 2px 5px black;
+                font: italic small-caps bold 30px/40px Courier, sans-serif;
+              "
+            >
+              Let Us Know You Better
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="
+          border-left: 5px solid #154360;
+          border-bottom: 5px solid #154360;
+          padding: 20px;
+        "
+      >
+        <div class="row">
+          <div class="col-md-12">
+            <label for="name">Your Name</label>
+            <!-- <span><fa name="cog" animation="spin"></fa></span> -->
+            <input 
+            <!-- class="form-control" #name="ngModel" -- />
+            type="text" id="name" name="name" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <label for="contact">Contact Number</label>
+            <input
+              <!-- class="form-control"
+              #contact="ngModel" -->
+              type="text"
+              id="contact"
+              name="contact"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <label for="address">Address</label>
+            <input
+              <!-- class="form-control"
+              #address="ngModel" -->
+              type="text"
+              id="address"
+              name="address"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="city">City</label>
+            <!-- <input type="text" id="city" name="city" /> -->
+
+            <select 
+            <!-- class="form-control" #city="ngModel" -->
+             name="city" id="city">
+              <option value="lahore" selected>Lahore</option>
+              <!-- <option value="cantt">Cantt.</option>
+      <option value="gulberg">Gulberg</option>
+      <option value="Askari10">Askari 10</option> -->
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label for="area">Area</label>
+            <!-- <input type="text" id="area" name="area" /> -->
+
+            <select 
+            <!-- class="form-control" #area="ngModel"  -->
+            name="area" id="area">
+              <option value="" selected disabled>Select Area</option>
+              <option value="dha">DHA</option>
+              <option value="cantt">Cantt.</option>
+              <option value="gulberg">Gulberg</option>
+              <option value="Askari10">Askari 10</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="noOfPerson">No. Of Person</label>
+            <input
+              <!-- class="form-control"
+              #noOfPerson="ngModel" -->
+              type="number"
+              id="noOfPerson"
+              name="noOfPerson"
+              min="1"
+              max="10"
+              [value]="noOfPersons"
+              (change)="addperson(noOfPerson.value)"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div *ngFor="let person of persons; let i = index">
+        <div class="row" style="padding-top: 30px;">
+          <div class="container-fluid">
+            <div class="col-lg-12">
+              <p
+                style="
+                  text-align: left;
+                  text-shadow: 2px 2px 5px black;
+                  font: italic small-caps bold 30px/40px Courier, sans-serif;
+                "
+              >
+                Select All You Want For Person {{ i + 1 }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            border-left: 5px solid #154360;
+            border-bottom: 5px solid #154360;
+            padding: 20px;
+          "
+        >
+          <div class="row" style="padding-top: 30px;">
+            <div class="container-fluid">
+              <div class="col-lg-12">
+                <p
+                  style="
+                    text-align: left;
+                    text-shadow: 2px 2px 5px black;
+                    font: italic small-caps bold 30px/40px Courier, sans-serif;
+                  "
+                >
+                  Services
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #hairCut{{ i + 1 }}="ngModel" -->
+                  type="checkbox"
+                  id="hairCut{{ i + 1 }}"
+                  name="hairCut{{ i + 1 }}"
+                  value="hairCut{{ i + 1 }}"
+                />
+              </div>
+
+              <div class="col-md-2">
+                <label for="hairCut{{ i + 1 }}" style="display: inline;"
+                  >Hair Cut (Rs. 700)</label
+                >
+              </div>
+
+              <div class="col-md-1">
+                <input
+                  
+                  type="checkbox"
+                  id="beardTrimming{{ i + 1 }}"
+                  name="beardTrimming{{ i + 1 }}"
+                  value="beardTrimming{{ i + 1 }}"
+                />
+              </div>
+
+              <div class="col-md-2">
+                <label for="beardTrimming{{ i + 1 }}" style="display: inline;"
+                  >Beard Trimming (Rs. 500)</label
+                >
+              </div>
+
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #shave{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="shave{{ i + 1 }}"
+                  name="shave{{ i + 1 }}"
+                  value="shave{{ i + 1 }}"
+                />
+              </div>
+
+              <div class="col-md-2">
+                <label for="shave{{ i + 1 }}" style="display: inline;"
+                  >Shave (Rs. 500)</label
+                >
+              </div>
+
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #hairColor{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="hairColor{{ i + 1 }}"
+                  name="hairColor{{ i + 1 }}"
+                  value="hairColor{{ i + 1 }}"
+                />
+              </div>
+
+              <div class="col-md-2">
+                <label for="hairColor{{ i + 1 }}" style="display: inline;"
+                  >Hair Color (Rs. 800)</label
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #hairPolish{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="hairPolish{{ i + 1 }}"
+                  name="hairPolish{{ i + 1 }}"
+                  value="hairPolish{{ i + 1 }}"
+                />
+              </div>
+
+              <div class="col-md-2">
+                <label for="hairPolish{{ i + 1 }}" style="display: inline;"
+                  >Hair Polish (Rs. 800)</label
+                >
+              </div>
+
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #facial{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="facial{{ i + 1 }}"
+                  name="facial{{ i + 1 }}"
+                  value="facial{{ i + 1 }}"
+                />
+              </div>
+
+              <div class="col-md-2">
+                <label for="facial{{ i + 1 }}" style="display: inline;"
+                  >Facial (Rs. 1200)</label
+                >
+              </div>
+
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #threading{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="threading{{ i + 1 }}"
+                  name="threading{{ i + 1 }}"
+                  value="threading{{ i + 1 }}"
+                />
+              </div>
+
+              <div class="col-md-2">
+                <label for="threading{{ i + 1 }}" style="display: inline;"
+                  >Threading (Rs. 200)</label
+                >
+              </div>
+
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #hairPolishAndStyling{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="hairPolishAndStyling{{ i + 1 }}"
+                  name="hairPolishAndStyling{{ i + 1 }}"
+                  value="hairPolishAndStyling{{ i + 1 }}"
+                />
+              </div>
+
+              <div class="col-md-2">
+                <label
+                  for="hairPolishAndStyling{{ i + 1 }}"
+                  style="display: inline;"
+                  >Hair Polish And Styling (Rs. 600)</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- ----------------------------------------------------- -->
+
+          <div class="row" style="padding-top: 30px;">
+            <div class="container-fluid">
+              <div class="col-lg-12">
+                <p
+                  style="
+                    text-align: left;
+                    text-shadow: 2px 2px 5px black;
+                    font: italic small-caps bold 30px/40px Courier, sans-serif;
+                  "
+                >
+                  Packages
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #hairCuttingBeardTrimmingOrShave{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="hairCuttingBeardTrimmingOrShave{{ i + 1 }}"
+                  name="hairCuttingBeardTrimmingOrShave"
+                  value="hairCuttingBeardTrimmingOrShave"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <label
+                  for="hairCuttingBeardTrimmingOrShave{{ i + 1 }}"
+                  style="display: inline;"
+                  >Hair Cutting + Beard Trimming / Shave (Rs. 1000)</label
+                >
+              </div>
+
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #hairCuttingHairColorBeardTrimmingOrShave{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="hairCuttingHairColorBeardTrimmingOrShave{{ i + 1 }}"
+                  name="hairCuttingHairColorBeardTrimmingOrShave{{ i + 1 }}"
+                  value="hairCuttingHairColorBeardTrimmingOrShave{{ i + 1 }}"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <label
+                  for="hairCuttingHairColorBeardTrimmingOrShave{{ i + 1 }}"
+                  style="display: inline;"
+                  >Hair Cutting + Hair Color + Beard Trimming / Shave (Rs.
+                  1700)</label
+                >
+              </div>
+
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #hairCuttingHairPolishBeardTrimmingOrShave{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="hairCuttingHairPolishBeardTrimmingOrShave{{ i + 1 }}"
+                  name="hairCuttingHairPolishBeardTrimmingOrShave{{ i + 1 }}"
+                  value="hairCuttingHairPolishBeardTrimmingOrShave{{ i + 1 }}"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <label
+                  for="hairCuttingHairPolishBeardTrimmingOrShave{{ i + 1 }}"
+                  style="display: inline;"
+                  >Hair Cutting + Hair Polish + Beard Trimming / Shave (Rs.
+                  1700)</label
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #hairCuttingHairColorHairPolishBeardTrimmingOrShave{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="hairCuttingHairColorHairPolishBeardTrimmingOrShave{{
+                    i + 1
+                  }}"
+                  name="hairCuttingHairColorHairPolishBeardTrimmingOrShave{{
+                    i + 1
+                  }}"
+                  value="hairCuttingHairColorHairPolishBeardTrimmingOrShave{{
+                    i + 1
+                  }}"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <label
+                  for="hairCuttingHairColorHairPolishBeardTrimmingOrShave{{
+                    i + 1
+                  }}"
+                  style="display: inline;"
+                  >Hair Cutting + Hair Color + Hair Polish + Beard Trimming /
+                  Shave (Rs. 2500)</label
+                >
+              </div>
+
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #hairCuttingFacialThreadingBeardTrimmingOrShave{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="hairCuttingFacialThreadingBeardTrimmingOrShave{{ i + 1 }}"
+                  name="hairCuttingFacialThreadingBeardTrimmingOrShave{{
+                    i + 1
+                  }}"
+                  value="hairCuttingFacialThreadingBeardTrimmingOrShave{{
+                    i + 1
+                  }}"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <label
+                  for="hairCuttingFacialThreadingBeardTrimmingOrShave{{
+                    i + 1
+                  }}"
+                  style="display: inline;"
+                  >Hair Cutting + Facial + Threading + Beard Trimming / Shave
+                  (Rs. 2000)</label
+                >
+              </div>
+
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #hairCuttingStylingAndShampooBeardTrimmingOrShave{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="hairCuttingStylingAndShampooBeardTrimmingOrShave{{
+                    i + 1
+                  }}"
+                  name="hairCuttingStylingAndShampooBeardTrimmingOrShave{{
+                    i + 1
+                  }}"
+                  value="hairCuttingStylingAndShampooBeardTrimmingOrShave{{
+                    i + 1
+                  }}"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <label
+                  for="hairCuttingStylingAndShampooBeardTrimmingOrShave{{
+                    i + 1
+                  }}"
+                  style="display: inline;"
+                  >Hair Cutting + Styling and Shampoo + Beard Trimming / Shave
+                  (Rs. 1500)</label
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-1">
+                <input
+                  <!-- class="form-control"
+                  #groomPackage{{
+                  i
+                  +
+                  1
+                  }}="ngModel" -->
+                  type="checkbox"
+                  id="groomPackage{{ i + 1 }}"
+                  name="groomPackage{{ i + 1 }}"
+                  value="groomPackage{{ i + 1 }}"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <label for="groomPackage{{ i + 1 }}" style="display: inline;"
+                  >Groom Package (Special Package for 3 days) (Rs. 15000)</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="padding-top: 30px;">
+        <div class="container-fluid">
+          <div class="col-lg-12">
+            <p
+              style="
+                text-align: left;
+                text-shadow: 2px 2px 5px black;
+                font: italic small-caps bold 30px/40px Courier, sans-serif;
+              "
+            >
+              Book Your Date and Time
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="
+          border-left: 5px solid #154360;
+          border-bottom: 5px solid #154360;
+          padding: 20px;
+        "
+      >
+        <div class="row">
+          <div class="col-md-6">
+            <label for="bokingDate">Date</label>
+            <!-- <span><fa name="cog" animation="spin"></fa></span> -->
+            <input
+              <!-- class="form-control"
+              #bokingDate="ngModel" -->
+              type="date"
+              id="bokingDate"
+              name="bokingDate"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="timeSlot">Time Slot</label>
+            <!-- <input type="text" id="area" name="area" /> -->
+
+            <select
+              <!-- class="form-control"
+              #timeSlot="ngModel" -->
+              name="timeSlot"
+              id="timeSlot"
+            >
+              <option value="" selected disabled>Select Time Slot</option>
+              <option value="11to12">11 am to 12 pm</option>
+              <option value="12to01">12 pm to 01 pm</option>
+              <option value="01to02">01 pm to 02 pm</option>
+              <option value="02to03">02 pm to 03 pm</option>
+              <option value="03to04">03 pm to 04 pm</option>
+              <option value="04to05">04 pm to 05 pm</option>
+              <option value="05to06">05 pm to 06 pm</option>
+              <option value="06to07">06 pm to 07 pm</option>
+              <option value="07to08">07 pm to 08 pm</option>
+              <option value="08to09">08 pm to 09 pm</option>
+              <option value="09to10">09 pm to 10 pm</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
